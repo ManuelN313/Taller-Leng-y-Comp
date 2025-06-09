@@ -46,7 +46,6 @@ data Expr a where
   SysIn    :: Var -> Expr Ω                                        -- ?v
 
 -- Funciones auxiliares
-
 fix :: (a -> a) -> a
 fix f = f (fix f)
 
@@ -92,7 +91,6 @@ fBig b c f σ =
 (+.) f (In g)      = In ((f +.) . g)
 
 -- Semántica de evaluación
-
 class DomSem dom where
   sem :: Expr dom -> Σ -> dom
 
@@ -133,8 +131,8 @@ instance DomSem Ω where
   sem (Catch c1 c2) σ = (sem c2) +. (sem c1 σ)
   sem (SysOut e) σ = (sem e σ, σ) >>== (\val -> Out (val, Normal σ))
   sem (SysIn v) σ = In (Normal . update σ v)
--- Funciones de evaluación de dominio
 
+-- Funciones de evaluación de dominio
 class Eval dom where
   eval :: Expr dom -> Σ -> IO ()
 
