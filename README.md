@@ -2,7 +2,6 @@
 
 Este trabajo de la materia Lenguajes y Compiladores presenta un intérprete para un lenguaje imperativo simple, implementado en Haskell. Este lenguaje incluye variables, expresiones aritmético-lógicas, control de flujo (condicionales, bucles), manejo de errores y operaciones de entrada/salida.
 
-
 ## 1. Estructura general del intérprete
 
 El intérprete está estructurado en tres capas principales:
@@ -44,7 +43,6 @@ El tipo `Ω` representa los posibles resultados de ejecutar un programa:
 * `Out (Int, Ω)`: salida de un valor
 * `In (Int -> Ω)`: espera entrada
 
-
 ## 2. Funciones auxiliares clave
 
 El intérprete define combinadores semánticos como:
@@ -57,16 +55,10 @@ El intérprete define combinadores semánticos como:
 
 Estas funciones encapsulan patrones comunes de evaluación y son esenciales para expresar la semántica de forma modular y clara.
 
----
-
 ## 3. Entrada/Salida y evaluación
 
 La clase `Eval` permite ejecutar expresiones interactivamente en la consola. Para `Ω`, se define la función `unroll`, que procesa estructuras anidadas de salida/entrada hasta llegar a una terminación.
 
----
-
 ## 4. Conclusión
 
 Este intérprete es un ejemplo clásico de cómo implementar la semántica denotacional de un lenguaje imperativo en Haskell, usando GADTs, funciones de orden superior y manejo explícito de errores y efectos.
-
-La estructura del programa separa claramente la representación del lenguaje, su semántica y su ejecución, haciendo el diseño limpio y extensible.
